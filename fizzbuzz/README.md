@@ -1,4 +1,4 @@
-# fizz_buzz
+# fizzbuzz
 
 - 3s  become `fizz`
 - 5s  become `buzz`
