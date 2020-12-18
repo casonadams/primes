@@ -1,9 +1,4 @@
-[package]
-authors = ["Cason Adams <cason.adams@vivint.com>"]
-edition = "2018"
-name    = "primes"
-version = "0.1.0"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+[workspace]
+members = [
+  "primes"
+]
