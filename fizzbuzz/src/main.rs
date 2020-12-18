@@ -1,25 +1,35 @@
-/* fizz buzz
- *
- *
- * every 3rd word should be fizz
- * every 5th word should be buzz
- * every 15th word should be fizzbuzz
- */
-
 fn main() {
-    fizzbuzz(100);
+    println!("{:?}", fizzbuzz(100));
 }
 
-fn fizzbuzz(n: i16) {
-    for i in 0..=n {
+fn fizzbuzz(n: i16) -> Vec<String> {
+    let mut v = vec![];
+    for i in 1..=n {
         if i % 15 == 0 {
-            println!("{}\tfizzbuzz", i);
+            v.push("fizzbuzz".to_string());
         } else if i % 3 == 0 {
-            println!("{}\tfizz", i);
+            v.push("fizz".to_string());
         } else if i % 5 == 0 {
-            println!("{}\tbuzz", i);
+            v.push("buzz".to_string());
         } else {
-            println!("{}", i);
+            v.push(format!("{}", i));
         }
+    }
+    v
+}
+
+#[cfg(test)]
+mod tests {
+    use super::fizzbuzz;
+
+    #[test]
+    fn test_fizzbuzz() {
+        let actual = fizzbuzz(15);
+        let expected = vec![
+            "1", "2", "fizz", "4", "buzz", "fizz", "7", "8", "fizz", "buzz", "11", "fizz", "13",
+            "14", "fizzbuzz",
+        ];
+
+        assert_eq!(expected, actual);
     }
 }
